@@ -1,5 +1,7 @@
 # FiberSeed
 
+REST API Fiber boilerplate
+
 ## ⭐️ Features
 
 - REST API oriented
@@ -19,7 +21,7 @@
 
 ## ⚙️ Usage
 
-You can fork this repo or use [Fiberseed as a package](https://github.com/embedmode/fiberseed/main.go)
+You can fork this repo or use [Fiberseed as a package](https://github.com/embedmode/fiberseed/blob/main/main.go)
 
 - git clone https://github.com/embedmode/fiberseed.git
 - Copy .env.example to .env
