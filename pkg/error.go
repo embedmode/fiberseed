@@ -17,3 +17,7 @@ func EntityNotFound(m string) *Error {
 func BadRequest(m string) *Error {
 	return &Error{Status: 400, Code: "bad-request", Message: m}
 }
+
+func Unexpected(m string) *Error {
+	return &Error{Status: 500, Code: "internal-server", Message: m}
+}

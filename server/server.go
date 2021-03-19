@@ -47,6 +47,7 @@ func Create() *fiber.App {
 			}
 		},
 	})
+
 	setupMiddlewares(app)
 
 	app.Get("/", func(c *fiber.Ctx) error {
