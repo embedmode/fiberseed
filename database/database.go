@@ -8,6 +8,7 @@ import (
 
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
+	"gorm.io/gorm/logger"
 )
 
 var (
@@ -28,8 +29,18 @@ func SetupDatabase() {
 	dbHost := os.Getenv("POSTGRES_HOST")
 
 	var err error
+	var config gorm.Config
 	dsn := fmt.Sprintf("host=%s user=%s dbname=%s sslmode=disable password=%s", dbHost, username, dbName, password)
-	DB, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
+
+	if os.Getenv("ENABLE_GORM_LOGGER") != "" {
+		config = gorm.Config{}
+	} else {
+		config = gorm.Config{
+			Logger: logger.Default.LogMode(logger.Silent),
+		}
+	}
+
+	DB, err = gorm.Open(postgres.Open(dsn), &config)
 
 	if err != nil {
 		log.Fatal(err)
@@ -37,6 +48,4 @@ func SetupDatabase() {
 	}
 
 	fmt.Println("Connection Opened to Database")
-
-	fmt.Println("Database Migrated")
 }

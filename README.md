@@ -5,6 +5,7 @@ REST API Fiber boilerplate
 ## ⭐️ Features
 
 - REST API oriented
+- Book CRUD example
 - middleware
   - compress
   - CORS
@@ -18,6 +19,7 @@ REST API Fiber boilerplate
 - GORM V2
 - Docker
 - Live reloading (Air or Fresh)
+- Testing
 
 ## ⚙️ Usage
 
@@ -37,6 +39,7 @@ You can fork this repo or use [Fiberseed as a package](https://github.com/embedm
 ```sh
 # Install postgres or use docker-compose
 docker-compose up postgres
+go test ./...
 air
 # or fresh
 ```
